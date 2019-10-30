@@ -21,6 +21,7 @@ nchnls = 2
 
 ;instrument will be triggered by keyboard widget
 instr SimpleSynth, 1
+
     iFreq = p4       
     kEnv madsr .1, .2, .6, 1
     
@@ -30,7 +31,7 @@ instr SimpleSynth, 1
     
        if chnget:k("enableLFO") == 1 then 
        
-        aVco vco2 p5*kEnv, iFreq
+       aVco vco2 p5*kEnv, iFreq,12
        aLp moogladder aVco,chnget:k("cutoff")*kLFO, chnget:k("peak")       
        else 
        aVco vco2 p5*kEnv, iFreq*kLFO
